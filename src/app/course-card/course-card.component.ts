@@ -9,10 +9,11 @@ import { Course } from '../model/course';
 export class CourseCardComponent implements OnInit {
 
   @Input() course: Course;
-  constructor() { }
-
+  @Input() courseIndex: number;
   @Output()
   courseSelected = new EventEmitter<Course>();
+
+  constructor() { }
 
   ngOnInit() {
   }
@@ -22,4 +23,9 @@ export class CourseCardComponent implements OnInit {
     this.courseSelected.emit(this.course);
   }
 
+  changeOnBeginner() {
+    if (this.course.category === 'BEGINNER') {
+      return 'beginner';
+    }
+  }
 }

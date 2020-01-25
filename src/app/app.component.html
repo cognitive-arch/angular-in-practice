@@ -5,10 +5,14 @@
          >
 
 </div>
+<!-- <div *ngFor="let pair of pipeCouse | keyvalue">
+   {{ pair.key + ':' + pair.value }}
+</div> -->
 <div class="courses">
    <app-course-card 
-      *ngFor="let course of courses"
-      [course] = "course"
-      (courseSelected) = "onCourseSelected($event)">
+      *ngFor="let course of courses; let i = index;"   
+      [course]="course"
+      [courseIndex]=i+1
+      (courseSelected)="onCourseSelected($event)">
    </app-course-card>
 </div>

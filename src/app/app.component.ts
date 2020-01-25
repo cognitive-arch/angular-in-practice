@@ -12,6 +12,8 @@ export class AppComponent {
   title = 'demo angular course';
   courses = COURSES;
 
+  pipeCouse = COURSES[0];
+
   onLogoClick() {
     alert('hello world');
   }
