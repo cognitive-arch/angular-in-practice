@@ -6,7 +6,9 @@
 
 </div>
 <div class="courses">
-   <course-card></course-card>
+   <app-course-card 
+      *ngFor="let course of courses"
+      [course] = "course"
+      (courseSelected) = "onCourseSelected($event)">
+   </app-course-card>
 </div>
-
-

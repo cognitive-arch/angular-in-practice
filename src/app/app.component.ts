@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { COURSES } from '../db-data';
+import { Course } from './model/course';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,16 @@ import { COURSES } from '../db-data';
 export class AppComponent {
 
   title = 'demo angular course';
+  courses = COURSES;
 
   onLogoClick() {
     alert('hello world');
   }
+
+  onCourseSelected(course: Course) {
+    console.log('In app componen', course);
+
+  }
+
+
 }
