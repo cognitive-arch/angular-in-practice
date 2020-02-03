@@ -8,11 +8,12 @@
 <!-- <div *ngFor="let pair of pipeCouse | keyvalue">
    {{ pair.key + ':' + pair.value }}
 </div> -->
-<div class="courses">
+<div class="courses" *ngIf="courses$ | async as course;">
    <app-course-card 
-      *ngFor="let course of courses; let i = index;"   
+      *ngFor="let course of course; let i = index;"   
       [course]="course"
       [courseIndex]=i+1
-      (courseSelected)="onCourseSelected($event)">
+      (courseSelected)="save($event)">
+      <app-course-image [src]="course.iconUrl"></app-course-image>
    </app-course-card>
 </div>
