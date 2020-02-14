@@ -5,14 +5,15 @@
          >
 
 </div>
-<!-- <div *ngFor="let pair of pipeCouse | keyvalue">
-   {{ pair.key + ':' + pair.value }}
-</div> -->
-<div class="courses" *ngIf="courses$ | async as course;">
-   <app-course-card 
-      *ngFor="let course of course; let i = index;"   
+
+<div class="courses" *ngIf="courses[0] as course1,">
+   <ng-template #blankImage let-courseName = "description">
+      Course {{ courseName }} has no image.
+    </ng-template> 
+   
+   <app-course-card *ngFor="let course of courses"   
       [course]="course"
-      [courseIndex]=i+1
+      [noImageTpl]="blankImage"
       (courseSelected)="save($event)">
       <app-course-image [src]="course.iconUrl"></app-course-image>
    </app-course-card>
